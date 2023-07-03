@@ -1,0 +1,54 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class="text-center">Clientes</h1>
+
+<div id="clients">
+  
+  <% @clients.each do |client| %>
+    <div class="card mb-3">
+      <div class="card-header">
+        Cliente <%= client.id %>
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= client.name %></h5>
+        <p class="card-text"><strong>Edad: </strong><%= client.age %></p>
+    <p class="card-text">  
+      <% if client.movies.count > 0 %>
+      <h3 class="text-center">Peliculas Arrendadas</h3> 
+      <div class="table-responsive">
+      <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>Id_Película</th>
+          <th>Nombre Película</th>        
+          <th>Fecha Arriendo</th>
+          <th>Fecha Plazo Entrega</th>
+        </tr>
+      </thead>
+        <% client.movies.each do |movie| %>  
+        <tbody>
+          <tr>  
+          <td><%= movie.id %></td>
+          <td><%= movie.name %></td>
+          <td><%= movie.created_at.strftime("%d-%m-%Y") %></td>
+          <td><%= (movie.created_at + 3.days).strftime("%d-%m-%Y") %></td>
+        </tr>
+      </tbody>
+        <% end %>
+    </table>
+  </div>
+      <% else %>
+        <strong>No tiene Películas Arrendadas</strong>
+      <% end %>
+    </p>
+
+    <p>
+      <%= link_to "Ver Cliente", client, class: 'btn btn-primary' %>
+    </p>
+  </div>
+</div>
+  <% end %>
+
+</div>
+
+<%= link_to "Nuevo Cliente", new_client_path, class:'btn btn-success mb-3' %>

@@ -1,0 +1,33 @@
+<p style="color: green"><%= notice %></p>
+
+<h1 class="text-center">Películas</h1>
+
+<div id="movies">
+  <div class="table-responsive">
+    <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Id_Película</th>
+        <th>Nombre Película</th>        
+        <th>Estado</th>
+        <th>Cliente</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+  <% @movies.each do |movie| %>
+
+  <tbody>
+    <tr>  
+    <td><%= movie.id %></td>
+    <td><%= movie.name %></td>    
+    <td>ARRENDADA</td>
+    <td><%= movie.client.name %></td>
+    <td><%= link_to "Ver más", movie %></td>
+  </tr>
+</tbody>
+  <% end %>
+</table>
+</div>
+</div>
+
+<%= link_to "Nuevo Arriendo", new_movie_path, class:'btn btn-success mb-3' %>
