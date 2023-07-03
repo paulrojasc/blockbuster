@@ -1,10 +1,11 @@
 <p style="color: green"><%= notice %></p>
 
+<h1 class="text-center">Detalle Cliente</h1>
 <%= render @client %>
 
 <div>
-  <%= link_to "Edit this client", edit_client_path(@client) %> |
-  <%= link_to "Back to clients", clients_path %>
+  <%= link_to "Modificar Cliente", edit_client_path(@client) %> |
+  <%= link_to "Regresar", clients_path %>
 
-  <%= button_to "Destroy this client", @client, method: :delete %>
+  <%= button_to "Eliminar Cliente", @client, method: :delete, class:'btn btn-danger mt-3'%>
 </div>

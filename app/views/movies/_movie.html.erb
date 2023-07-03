@@ -1,12 +1,15 @@
 <div id="<%= dom_id movie %>">
-  <p>
-    <strong>Nombre Película:</strong>
-    <%= movie.name %>
-  </p>
 
-  <p>
-    <strong>Cliente:</strong>
-    <%= movie.client.name %>
-  </p>
+  <h1 class="text-center">Detalle Arriendo</h1>
+
+  <div class="card">
+    <h5 class="card-header">Película ID: <%= movie.id %></h5>
+    <div class="card-body">
+      <h5 class="card-title"><%= movie.name %></h5>
+      <p class="card-text">Arrendada por: <%= movie.client.name %></p>
+      <p class="card-text">Fecha de Arriendo: <%= movie.created_at.strftime("%d-%m-%Y") %></p>
+      <p class="card-text">Fecha Plazo Entrega: <%= (movie.created_at + 3.days).strftime("%d-%m-%Y") %></p>
+    </div>
+  </div>
 
 </div>

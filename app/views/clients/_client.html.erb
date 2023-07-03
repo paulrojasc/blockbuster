@@ -1,12 +1,11 @@
 <div id="<%= dom_id client %>">
-  <p>
-    <strong>Name:</strong>
-    <%= client.name %>
-  </p>
 
-  <p>
-    <strong>Age:</strong>
-    <%= client.age %>
-  </p>
+  <div class="card">
+    <h5 class="card-header">Cliente ID: <%= client.id %></h5>
+    <div class="card-body">
+      <h5 class="card-title"><%= client.name %></h5>
+      <p class="card-text">Edad: <%= client.age %></p>
+    </div>
+  </div>
 
 </div>

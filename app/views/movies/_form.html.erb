@@ -17,8 +17,6 @@
   </div>
 
   <div>
-    <!-- <%= form.label :client_id, 'Nombre Cliente' , style: "display: block" %>     -->
-    <!-- <%= form.select :client_id, options_for_select(Client.all.pluck(:name, :id)) %> -->
     <%= form.label :client_id, 'Nombre Cliente', class: 'form-label', style: 'display: block' %>    
     <%= form.select :client_id, options_for_select(Client.all.pluck(:name, :id), prompt: 'Selecciona un cliente'), {}, class: 'form-select' %>
   </div>

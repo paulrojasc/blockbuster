@@ -5,29 +5,33 @@
 <div id="movies">
   <div class="table-responsive">
     <table class="table table-hover">
-    <thead>
-      <tr>
-        <th>Id_Película</th>
-        <th>Nombre Película</th>        
-        <th>Estado</th>
-        <th>Cliente</th>
-        <th>Acción</th>
-      </tr>
-    </thead>
-  <% @movies.each do |movie| %>
+      <thead>
+        <tr>
+          <th>Id_Película</th>
+          <th>Nombre Película</th>
+          <th>Estado</th>
+          <th>Cliente</th>
+          <th>Acción</th>
+        </tr>
+      </thead>
+      <% @movies.each do |movie| %>
 
-  <tbody>
-    <tr>  
-    <td><%= movie.id %></td>
-    <td><%= movie.name %></td>    
-    <td>ARRENDADA</td>
-    <td><%= movie.client.name %></td>
-    <td><%= link_to "Ver más", movie %></td>
-  </tr>
-</tbody>
-  <% end %>
-</table>
-</div>
+      <tbody>
+        <tr>
+          <td><%= movie.id %></td>
+          <td><%= movie.name %></td>
+          <td>ARRENDADA</td>
+          <td><%= movie.client.name %></td>
+          <td><%= link_to "Ver más", movie %></td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
 </div>
 
 <%= link_to "Nuevo Arriendo", new_movie_path, class:'btn btn-success mb-3' %>
+
+<div style="display: flex; justify-content: center;">
+  <%==pagy_bootstrap_nav(@pagy)%>
+</div>
